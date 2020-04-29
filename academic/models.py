@@ -36,6 +36,7 @@ class ktclass(models.Model):
     classname = models.CharField(max_length=250,unique=True)
     classid = models.CharField(max_length=16)
     student = models.OneToOneField(to=student,on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.classname + " " + self.classid
 
