@@ -143,7 +143,11 @@ class UserEmailUpdate(models.Model):
     def __str__(self):
         return self.last_email   
     
-
+STAFF_CHOICES = (
+    ("ADMIN", ("Admin")),
+    ("ACADEMIC", ("Academic Dept.")),
+    ("EXAM CELL", ("Exam cell")),
+)
 class User_update(models.Model):
     user = models.ForeignKey('User', on_delete=models.CASCADE)
     slug = models.SlugField(max_length=250, null=True, blank=True)
@@ -153,6 +157,17 @@ class User_update(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     Verified = models.BooleanField(default=False)
 
+class profile(models.Model):
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    dp = models.ImageField(blank=True,null=True)
+    college_staff = models.BooleanField(default=False)
+    student = models.BooleanField(default=True)
+    parents = models.BooleanField(default=False)
+    ifstaffrole = models.CharField(max_length = 20, 
+        choices = STAFF_CHOICES,null=True,blank=True )
+
+    def __str__(self):
+        return self.user.username
 
 @receiver(pre_save, sender=UserEmailUpdate)
 def if_email_add_Verified_Email_obj(sender, instance, **kwargs):

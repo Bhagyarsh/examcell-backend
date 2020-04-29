@@ -8,6 +8,7 @@ from django.conf import settings
 from rest_framework import permissions
 from rest_framework_jwt.settings import api_settings
 from .utils import jwt_response_payload_handler
+from accounts.models import profile
 User = get_user_model()
 jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
 jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
@@ -43,6 +44,10 @@ class RegisterAPIView(generics.CreateAPIView):
     serializer_class = UserRegisterSerializer
     permission_classes = [permissions.AllowAny]
 
+class ProfileAPIView(generics.CreateAPIView):
+    queryset =  profile.objects.all()
+    serializer_class = UserRegisterSerializer
+    permission_classes = [permissions.AllowAny]
 # class UpdateUser(generics.UpdateAPIView):
 #     queryset = User.objects.all()
 #     serializer_class = ClientNameSerializer
