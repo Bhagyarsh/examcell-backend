@@ -1,9 +1,9 @@
 from django.db import models
-
+from academic.models import student
 # Create your models here.
 
 class Transcript(models.Model):
-    student = models.OneToOneField(to="acadamic.student",on_delete=models.CASCADE)
+    student = models.OneToOneField(to=student,on_delete=models.CASCADE)
     reason = models.TextField()
     marksheet12 = models.ImageField()
     marksheet34 = models.ImageField()
@@ -11,3 +11,6 @@ class Transcript(models.Model):
     marksheet78 = models.ImageField(blank=True,null=True)
     feerecipt = models.ImageField()
     application =  models.ImageField()
+
+    def __str__(self):
+        return self.student.user.username

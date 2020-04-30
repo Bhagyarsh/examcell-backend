@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'accounts',
     'academic',
-    'notice'
+    'notice',
+    'examform',
+    'Transcript'
 ]
 
 MIDDLEWARE = [
