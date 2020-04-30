@@ -1,0 +1,114 @@
+{%load static %}
+<div
+  class="sidebar"
+  data-color="purple"
+  data-background-color="black"
+  data-image="{% static '
+assets/img/sidebar-4.jpg' %}"
+>
+  <div class="logo">
+    <a href="https://kccemsr.edu.in/" class="simple-text logo-normal">
+      <img
+        src="https://kccemsr.edu.in/images/logo.png"
+        alt="KC COLLEGE LOGO"
+        style="width: 80px;"
+      />
+    </a>
+  </div>
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'academic:dashboard' %}">
+          <i class="material-icons">dashboard</i>
+          <p>Dashboard</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'academic:noticelist' %}">
+          <i class="material-icons">volume_up</i>
+          <p>Notices</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          href="#transcript"
+          aria-expanded="true"
+        >
+          <i class="material-icons">description</i>
+          <p>
+            Apply for transcript
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse show" id="transcript">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'academic:transciptApplication' %}">
+                <span class="sidebar-normal"
+                  ><i class="material-icons">create</i>
+                  Create Application
+                </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'academic:transciptStatus' %}">
+                <span class="sidebar-normal"
+                  ><i class="material-icons">visibility</i>
+                  View Application Status
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          href="#profile"
+          aria-expanded="true"
+        >
+          <i class="material-icons">person</i>
+          <p>
+            Update Profile
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse show" id="profile">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'academic:profileupdate' %}">
+                <span class="sidebar-normal"
+                  ><i class="material-icons">create</i> Apply for
+                  correction</span
+                >
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'academic:profilestatus' %}">
+                <span class="sidebar-normal"
+                  ><i class="material-icons">visibility</i> View Application
+                  Status</span
+                >
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'academic:examform' %}">
+          <i class="material-icons">library_books</i>
+          <p>Exam form filling</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'academic:payment' %}">
+          <i class="material-icons">monetization_on</i>
+          <p>Fees payment</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

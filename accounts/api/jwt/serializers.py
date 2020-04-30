@@ -32,6 +32,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
     parents = serializers.BooleanField(default=False)
     student = serializers.BooleanField(default=True)
     staff = serializers.BooleanField(default=False)
+    Username = serializers.CharField(write_only= True)
     password = serializers.CharField(
         style={'input_type': 'password'},
         write_only=True
@@ -43,10 +44,11 @@ class UserRegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name',
-                  'password', 'token', 'expires', "dp", "parents", "student", "staff")
-        extra_kwargs = {'password': {'write_only': True}, 'dp': {'write_only': True, 'required': False, 'allow_null': True},
-                        'parents': {'write_only': True}, 'student': {'write_only': True}, 'staff': {'write_only': True}}
+       
+        fields = ('username',  'first_name', 'last_name',
+                  'password', 'token', 'expires', "dp", "parents", "student", "staff",'Username',)
+        extra_kwargs = {'username': {'required': False,'allow_null': True}, 'password': {'write_only': True}, 'dp': {'write_only': True, 'required': False, 'allow_null': True},
+                        'parents': {'write_only': True}, 'student': {'write_only': True}, 'staff': {'write_only': True}, 'Username':{'write_only': True},}
 
     def get_token(self, obj):
         user = obj
@@ -57,20 +59,32 @@ class UserRegisterSerializer(serializers.ModelSerializer):
     def get_expires(self, obj):
         return timezone.now() + expire_delta - datetime.timedelta(seconds=200)
 
-
     def create(self, validated_data):
         print("===============================")
         print(validated_data)
-        new_user = User.objects.create_user(
-            username=validated_data.get("username"),
-            first_name=validated_data.get("first_name"),
-            last_name=validated_data.get("last_name"),
-            password=validated_data.get("password"))
-
-        updateprofile = profile.objects.create(
-            user=new_user, dp=validated_data["dp"], college_staff=validated_data["staff"],
-            student=validated_data["student"],parents=validated_data["parents"])
-
+        
+        try:
+            new_user = User.objects.create_user(
+                username=validated_data.get("Username"),
+                first_name=validated_data.get("first_name"),
+                last_name=validated_data.get("last_name"),
+                password=validated_data.get("password"))
+        except Exception as e:
+            print(e)
+            error = {'message': "Username already '{}' already exist".format(validated_data.get("Username")) if len(
+                e.args) > 0 else 'Unknown Error'}
+            raise serializers.ValidationError(error)
+        try:
+            print("======================================")
+            print(new_user)
+            updateprofile = profile.objects.create(
+                user=new_user, dp=validated_data.get("dp", None), college_staff=validated_data["staff"],
+                student=validated_data["student"], parents=validated_data["parents"])
+        except Exception as e:
+            error = {'message': ",".join(e.args) if len(
+                e.args) > 0 else 'Unknown Error'}
+            raise serializers.ValidationError(error)
+        print("done")
         return new_user
 
 

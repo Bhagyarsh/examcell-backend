@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Your Activity</h4>
+            <p class="card-category">
+              All the requested changes/updates statuses will be listed here
+            </p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive p-4" style="font-size: initial;">
+              <table class="table">
+                <thead>
+                  <th class="text-primary">#</th>
+                  <th class="text-primary">Activity</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      1
+                    </td>
+                    <td>
+                      You have applied for transcript.View the status now at
+                      <a class="text-primary" href="./viewTranscriptStatus.html"
+                        >Transcript Status</a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

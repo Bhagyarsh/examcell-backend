@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Notices</h4>
+            <p class="card-category">
+              All the issued notices would be visible here
+            </p>
+          </div>
+          <div class="card-body">
+            <div
+              class="table-responsive p-4"
+              style="font-size: initial;"
+            >
+              <table class="table">
+                <thead class="text-primary">
+                  <th>
+                    #
+                  </th>
+                  <th>
+                    Title
+                  </th>
+                  <th>
+                    Department
+                  </th>
+                  <th>
+                    Issued By
+                  </th>
+                  <th>
+                    Actions
+                  </th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      1
+                    </td>
+                    <td class="text-primary">
+                      Exam postponed
+                    </td>
+                    <td>
+                      All
+                    </td>
+                    <td>
+                      Principal
+                    </td>
+                    <td>
+                      <a
+                        href="{% url 'academic:noticedetail' %}"
+                        class="btn btn-primary btn-sm"
+                        >View</a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,124 @@
+<!--
+=========================================================
+Material Dashboard - v2.1.2
+=========================================================
+
+Product Page: https://www.creative-tim.com/product/material-dashboard
+Copyright 2020 Creative Tim (https://www.creative-tim.com)
+Coded by Creative Tim
+
+=========================================================
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+{% extends 'base.html' %} {% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title d-inline">Profile</h4>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      value="Abhishek Mogaveera"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Email address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      value="abhishek@gmail.com"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="">Date of Birth</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      value="2013-01-08"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Phone Number</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      value="993737340"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Department</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      value="Computer Engineering"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Designation</label>
+                    <input type="text" class="form-control" value="Student" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">City</label>
+                    <input type="text" class="form-control" value="Thane" />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Postal Code</label>
+                    <input type="number" class="form-control" value="400600" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Address</label>
+                    <div class="form-group">
+                      <label class="bmd-label-floating"></label>
+                      <textarea class="form-control" rows="5">
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias quas eaque dolore. Harum voluptatem sapiente ab eos ratione pariatur maiores aperiam.</textarea
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary pull-right">
+                Update
+              </button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

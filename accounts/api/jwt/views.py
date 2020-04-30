@@ -40,14 +40,17 @@ class AuthAPIView(APIView):
             return Response({'detail':"user not found at all" },status = 401)
 
 class RegisterAPIView(generics.CreateAPIView):
-    queryset =  User.objects.all()
+    # queryset =  User.objects.all()
     serializer_class = UserRegisterSerializer
     permission_classes = [permissions.AllowAny]
+
 
 class ProfileAPIView(generics.CreateAPIView):
     queryset =  profile.objects.all()
     serializer_class = UserRegisterSerializer
     permission_classes = [permissions.AllowAny]
+
+    
 # class UpdateUser(generics.UpdateAPIView):
 #     queryset = User.objects.all()
 #     serializer_class = ClientNameSerializer
