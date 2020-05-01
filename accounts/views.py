@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404,redirect
 from django.views.generic.edit import FormView, CreateView
 from .models import profile
-from .forms import UserEmailChangeForm, RegisterFormSession
+from .forms import UserEmailChangeForm, RegisterFormSession,LoginForm
 from django.urls import reverse_lazy
 from academic.models import student, studenteditprofilerequest
 from academic.forms import studenteditprofilerequestForm
-
+from django.contrib.auth import authenticate, login
 
 def Profileupdateview(request):
     form = studenteditprofilerequestForm()
@@ -69,6 +69,40 @@ def profileDetailview(request):
                'pincode':pincode,"city":city,"address":address,"Department":Department}
     print(context)
     return render(request,"main/profileDetail.html",context)
+
+def signup(request):
+    if request.method == "POST":
+        form = RegisterFormSession(request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect('/dashboard')
+
+    else:
+        form = RegisterFormSession()
+    return render(request,'auth/signup.html',{"form":form})
+
+def signin(request):
+  #if you add request.method=='POST' is it a bug i dont know y
+  if request.method:
+    form = LoginForm(request.POST)
+    if form.is_valid():
+        cleandata=form.cleaned_data
+        #authenticate checks if credentials exists in db
+        user=authenticate(username=cleandata['username'],
+                          password=cleandata['password'])
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect('/dashboard')
+
+            else:
+                 return redirect('/dashboard')
+
+        else:
+            return redirect('/signin.html')
+    else:
+        form=LoginForm()
+    return render(request, 'auth/signin.html',{'form':form})
 
 def signup(request):
     if request.method == "POST":

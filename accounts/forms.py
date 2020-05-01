@@ -125,3 +125,7 @@ class UserlastNameChangeForm(forms.Form):
 
 class UserEmailChangeForm(forms.Form):
     Email = forms.EmailField()
+    
+class LoginForm(forms.Form):
+   username = forms.CharField()
+   password = forms.CharField(widget=forms.PasswordInput)#hides password on input
