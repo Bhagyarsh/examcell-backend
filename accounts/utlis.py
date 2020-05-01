@@ -19,6 +19,7 @@ def unique_key_generator(instance):
     if qs_exists:
         return unique_slug_generator(instance)
     return key
+    
 def unique_slug_generator(instance, new_slug=None):
     """
     This is for a Django project and it assumes your instance 

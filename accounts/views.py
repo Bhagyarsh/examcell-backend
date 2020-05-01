@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from django.views.generic.edit import FormView, CreateView
 from .models import profile
 from .forms import UserEmailChangeForm, RegisterFormSession
@@ -69,3 +69,14 @@ def profileDetailview(request):
                'pincode':pincode,"city":city,"address":address,"Department":Department}
     print(context)
     return render(request,"main/profileDetail.html",context)
+
+def signup(request):
+    if request.method == "POST":
+        form = RegisterFormSession(request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect('/dashboard')
+
+    else:
+        form = RegisterFormSession()
+    return render(request,'auth/signup.html',{"form":form})

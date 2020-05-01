@@ -7,6 +7,7 @@ urlpatterns = [
     # path('User/email/change', views.EmailChangeView.as_view(),name='email changed'),
     # path('User/update/email', views.changedemailview,name='changed_email'),
     # path('login', views.CreateUser.as_view(),name='login'),
+    path("signin",views.signup,name="login"),
     path('api/v1/',include("accounts.api.jwt.urls")),
     path('profile/status',views.Profileupdatestatusview,name='profilestatus'),
     path('profile/update',views.Profileupdateview,name='profileupdate'),
