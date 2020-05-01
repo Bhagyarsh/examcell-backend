@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">{{notice.title}}</h4>
+      </div>
+      <div class="card-body">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <img
+              class="d-block w-100"
+              src="{{notice.image.url}}"
+              
+            />
+          </div>
+        </div>
+        <div class="mt-4 pt-2">
+          <blockquote class="blockquote">
+            <p>
+              {{notice.noticeText}}
+            </p>
+            <small>
+              Created by : Admin &nbsp; Created at :{{notice.added_at}}
+            </small>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

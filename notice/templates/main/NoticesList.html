@@ -25,37 +25,37 @@
                     Title
                   </th>
                   <th>
-                    Department
+                    Display From
                   </th>
-                  <th>
-                    Issued By
-                  </th>
+
                   <th>
                     Actions
                   </th>
                 </thead>
                 <tbody>
                   <tr>
+                    {% for notice in noticelist %}
                     <td>
-                      1
+                      {{ forloop.counter }}
                     </td>
                     <td class="text-primary">
-                      Exam postponed
+                     {{notice.title}}
                     </td>
                     <td>
-                      All
+                      {{notice.added_at}}
+                     
                     </td>
-                    <td>
-                      Principal
-                    </td>
+
                     <td>
                       <a
-                        href="{% url 'academic:noticedetail' %}"
+                        href="{% url 'notice:noticedetail' notice.slug %}"
                         class="btn btn-primary btn-sm"
                         >View</a
                       >
                     </td>
                   </tr>
+                    {% endfor %}
+                  
                 </tbody>
               </table>
             </div>
