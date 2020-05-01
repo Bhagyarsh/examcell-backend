@@ -1,0 +1,92 @@
+{% extends 'base.html' %} {% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title d-inline">Exam Form</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <label class="col-sm-2 col-form-label">class</label>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <p class="form-control-static">{{kclass}}</p>
+                </div>
+              </div>
+              <label class="col-sm-2 col-form-label">Semister </label>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <p class="form-control-static">{{sem}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-sm-2 col-form-label">Added on</label>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <p class="form-control-static">{{added_on}}</p>
+                </div>
+              </div>
+              <label class="col-sm-2 col-form-label">Open till</label>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <p class="form-control-static">{{open_till}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-sm-2 col-form-label">Kt</label>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <p class="form-control-static">
+                    {{is_kt}}
+                  </p>
+                </div>
+              </div>
+              <label class="col-sm-2 col-form-label">fee</label>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <p class="form-control-static">{{fee}}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title d-inline">
+              Create Transcript Application
+            </h4>
+          </div>
+          <div class="card-body">
+            
+             <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+              {% for field in form %}
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="my_class" for="{{ field.name }}">{{ field.label }}</label>
+                  {{ field }}
+                </div>
+              </div>
+              {% endfor %}
+              <button type="submit" class="btn btn-primary pull-left">
+                Submit
+              </button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

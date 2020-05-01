@@ -43,4 +43,5 @@ def unique_slug_generator(instance, new_slug=None):
                     randstr=random_string_generator(size=40)
                 )
         return unique_slug_generator(instance, new_slug=new_slug)
+    print("[=====================================")
     return slug

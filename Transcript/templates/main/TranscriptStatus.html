@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">View Transcript Status</h4>
+            <p class="card-category">
+              All your Transcript Application Status will be listed here
+            </p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive p-4" style="font-size: initial;">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>
+                    #
+                  </th>
+                  <th>
+                    Applied at
+                  </th>
+                  <th>
+                    Status
+                  </th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      1
+                    </td>
+                    <td>
+                      {{Applied_at}}
+                    </td>
+                    <td class="{{class}}">
+                      {{status}}
+                    </td>
+                  </tr>
+                  <!-- <tr>
+                    <td>
+                      1
+                    </td>
+                    <td>
+                      08/07/2020
+                    </td>
+                    <td class="text-success">
+                      Success
+                    </td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

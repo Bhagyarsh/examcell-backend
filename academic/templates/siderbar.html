@@ -45,7 +45,7 @@ assets/img/sidebar-4.jpg' %}"
         <div class="collapse show" id="transcript">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'academic:transciptApplication' %}">
+              <a class="nav-link" href="{% url 'Transcript:transciptApplication' %}">
                 <span class="sidebar-normal"
                   ><i class="material-icons">create</i>
                   Create Application
@@ -53,7 +53,7 @@ assets/img/sidebar-4.jpg' %}"
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'academic:transciptStatus' %}">
+              <a class="nav-link" href="{% url 'Transcript:transciptStatus' %}">
                 <span class="sidebar-normal"
                   ><i class="material-icons">visibility</i>
                   View Application Status
@@ -79,7 +79,7 @@ assets/img/sidebar-4.jpg' %}"
         <div class="collapse show" id="profile">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'academic:profileupdate' %}">
+              <a class="nav-link" href="{% url 'accounts:profileupdate' %}">
                 <span class="sidebar-normal"
                   ><i class="material-icons">create</i> Apply for
                   correction</span
@@ -87,7 +87,7 @@ assets/img/sidebar-4.jpg' %}"
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'academic:profilestatus' %}">
+              <a class="nav-link" href="{% url 'accounts:profilestatus' %}">
                 <span class="sidebar-normal"
                   ><i class="material-icons">visibility</i> View Application
                   Status</span
@@ -98,7 +98,7 @@ assets/img/sidebar-4.jpg' %}"
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'academic:examform' %}">
+        <a class="nav-link" href="{% url 'examForm:examformlist' %}">
           <i class="material-icons">library_books</i>
           <p>Exam form filling</p>
         </a>

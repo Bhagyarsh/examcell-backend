@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title d-inline">Exam Form</h4>
+                        <p class="card-category ">Form will only be open until 19/05/2020</p>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="fname" class="mr-2" >Semester</label>
+                                    <select class="selectpicker show-tick" data-style="btn-secondary">
+                                        <option value=1>SEM I</option>
+                                        <option value=2>SEM II</option>
+                                        <option value=3>SEM III</option>
+                                        <option value=4>SEM IV</option>
+                                        <option value=5>SEM V</option>
+                                        <option value=6>SEM VI</option>
+                                        <option value=7>SEM VII</option>
+                                        <option value=8>SEM VIII</option>
+                                      </select>
+                                      
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="fname" >Do you have KT</label>
+                                    <div class="form-check form-check-radio">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios" value="yes" >
+                                            Yes
+                                            <span class="circle">
+                                                <span class="check"></span>
+                                            </span>
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios" value="no">
+                                            No
+                                            <span class="circle">
+                                                <span class="check"></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="fname" class="mr-2" >Department</label>
+                                    <select class="selectpicker show-tick" data-style="btn-secondary">
+                                        <option value=1>Computer Engg</option>
+                                        <option value=2>Information Technology Engg</option>
+                                        <option value=3>Electronics Engg</option>
+                                        <option value=4>MMS</option>
+                                      </select>
+                                      
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="fname" class="mr-2" >Class</label>
+                                    <select class="selectpicker show-tick" data-style="btn-secondary">
+                                        <option value=1>FE-A</option>
+                                        <option value=2>FE-B</option>
+                                        <option value=3>FE-C</option>
+                                        <option value=4>SE-A</option>
+                                        <option value=5>SE-B</option>
+                                        <option value=6>SE-C</option>
+                                        
+                                      </select>
+                                      
+                                </div>
+                                <div class="col-md-6">
+                                    <div
+                                        class="form-group form-file-upload form-file-multiple"
+                                    >
+                                        <input
+                                        type="file"
+                                        multiple=""
+                                        class="inputFileHidden"
+                                        />
+                                        <div class="input-group">
+                                        <input
+                                            type="text"
+                                            class="form-control inputFileVisible"
+                                            placeholder="Select Fee Reciept Copy"
+                                        />
+                                        <span class="input-group-btn">
+                                            <button
+                                            type="button"
+                                            class="btn btn-fab btn-round btn-info"
+                                            >
+                                            <i class="material-icons">attach_file</i>
+                                            </button>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div
+                                        class="form-group form-file-upload form-file-multiple"
+                                    >
+                                        <input
+                                        type="file"
+                                        multiple=""
+                                        class="inputFileHidden"
+                                        />
+                                        <div class="input-group">
+                                        <input
+                                            type="text"
+                                            class="form-control inputFileVisible"
+                                            placeholder="Select Previous HallTicket File"
+                                        />
+                                        <span class="input-group-btn">
+                                            <button
+                                            type="button"
+                                            class="btn btn-fab btn-round btn-info"
+                                            >
+                                            <i class="material-icons">attach_file</i>
+                                            </button>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                            <button type="submit" class="btn btn-info pull-right">Submit and Pay</button>
+                            <div class="clearfix"></div>
+
+
+                    </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+{% endblock %}

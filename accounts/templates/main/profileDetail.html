@@ -1,0 +1,109 @@
+{% extends 'base.html' %} {% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title d-inline">Profile</h4>
+            <a
+              href="./updateProfile.html"
+              class="btn btn-info btn-sm d-inline float-right"
+              >Update Profile</a
+            >
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <label class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <p class="form-control-static">{{fullname}}</p>
+                </div>
+              </div>
+              <label class="col-sm-2 col-form-label"
+                >Email Address</label
+              >
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <p class="form-control-static">{{emailadd}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-sm-2 col-form-label"
+                >Date of Birth</label
+              >
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <p class="form-control-static">{{DOB}}</p>
+                </div>
+              </div>
+              <label class="col-sm-2 col-form-label"
+                >Phone Number</label
+              >
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <p class="form-control-static">{{phone_no}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-sm-2 col-form-label">Department</label>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <p class="form-control-static">
+                    {{Department}}
+                  </p>
+                </div>
+              </div>
+              <label class="col-sm-2 col-form-label">Designation</label>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <p class="form-control-static">{{Designation}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-sm-2 col-form-label">City</label>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <p class="form-control-static">{{city}}</p>
+                </div>
+              </div>
+              <label class="col-sm-2 col-form-label">Postal Code</label>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <p class="form-control-static">{{pincode}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-sm-2 col-form-label">Adress</label>
+              <div class="col-sm-10">
+                <div class="form-group">
+                  <p class="form-control-static">
+                    {{address}}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <img class="img" src="../assets/img/faces/marc.jpg" />
+          </div>
+          <div class="card-body">
+            <h6 class="card-category text-gray">{{Designation}}</h6>
+            <h4 class="card-title">{{fullname}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

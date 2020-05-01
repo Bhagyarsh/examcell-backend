@@ -17,6 +17,7 @@ class klass(models.Model):
 
 
 class student(models.Model):
+    Department = models.CharField(max_length=20,blank=True,null=True)
     clgregisterid = models.CharField(max_length=16)
     user = models.OneToOneField(to=User, on_delete=models.CASCADE)
     enrolledclass = models.OneToOneField(to=klass, on_delete=models.CASCADE)
@@ -30,12 +31,12 @@ class student(models.Model):
     pincode = models.IntegerField()
 
     def __str__(self):
-        return self.classname + " " + self.div
+        return self.user.username + " " + self.div
 
 class ktclass(models.Model):
     classname = models.CharField(max_length=250,unique=True)
     classid = models.CharField(max_length=16)
-    student = models.OneToOneField(to=student,on_delete=models.CASCADE)
+    student = models.ManyToManyField(to=student)
     
     def __str__(self):
         return self.classname + " " + self.classid
@@ -63,6 +64,7 @@ class staffprofileeditrequest(models.Model):
     department = models.CharField(max_length=16)
     user = models.OneToOneField(to=User, on_delete=models.CASCADE)
     phone_no = models.IntegerField()
+    # Department = models.CharField(max_length=20,blank=True,null=True)
     email_id = models.EmailField()
     DOB = models.DateField()
     address = models.CharField(max_length=250)
@@ -70,14 +72,16 @@ class staffprofileeditrequest(models.Model):
     pincode = models.IntegerField()
 
     def __str__(self):
-        return self.classname + " " + self.div
+        return self.enrolledclass.classname + " " + self.div
 
 
 class studenteditprofilerequest(models.Model):
+    addedat = models.DateField(auto_now_add=True)
     clgregisterid = models.CharField(max_length=16)
     user = models.OneToOneField(to=User, on_delete=models.CASCADE)
     enrolledclass = models.OneToOneField(to=klass, on_delete=models.CASCADE)
     roll_no = models.IntegerField()
+    Department = models.CharField(max_length=20,blank=True,null=True)
     div = models.CharField(max_length=10)
     phone_no = models.IntegerField()
     email_id = models.EmailField()
@@ -85,6 +89,7 @@ class studenteditprofilerequest(models.Model):
     address = models.CharField(max_length=250)
     city = models.CharField(max_length=16)
     pincode = models.IntegerField()
+    acknowledge = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.classname + " " + self.div
+        return self.enrolledclass.classname + " " + self.div

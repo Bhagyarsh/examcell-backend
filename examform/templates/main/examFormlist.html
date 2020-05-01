@@ -1,0 +1,76 @@
+{% extends 'base.html' %} {% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Exam Form</h4>
+            <p class="card-category">
+              Available Exam Form would be visible here
+            </p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive p-4" style="font-size: initial;">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>
+                    #
+                  </th>
+                  <th>
+                    Form
+                  </th>
+                  <th>
+                    sem
+                  </th>
+                  <th>
+                    open till
+                  </th>
+
+                  <th>
+                    Fee
+                  </th>
+                  <th>
+                    Fill
+                  </th>
+                </thead>
+                <tbody>
+                  <tr>
+                    {% for form in formlist %}
+                    <td>
+                      {{ forloop.counter }}
+                    </td>
+                    <td class="text-primary">
+                      {{form.klass.classname}} {{form.ktclass.classname}}
+                    </td>
+                    <td>
+                      {{form.sem}}
+                    </td>
+                    <td>
+                      {{form.open_till}}
+                    </td>
+
+   
+                    <td>
+                      {{form.fee}}
+                    </td>
+                    <td>
+                      <a
+                        href="{% url 'examForm:examform' form.slug %}"
+                        class="btn btn-primary btn-sm"
+                        >Fill</a
+                      >
+                    </td>
+
+                    {% endfor %}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
