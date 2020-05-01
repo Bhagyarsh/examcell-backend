@@ -109,7 +109,8 @@ def signup(request):
         form = RegisterFormSession(request.POST)
         if form.is_valid():
             user = form.save()
-            return redirect('/dashboard')
+            pro = profile.objects.create(user=user,student=True)
+            return redirect('/signin')
 
     else:
         form = RegisterFormSession()

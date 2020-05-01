@@ -18,12 +18,14 @@ def examformlist(request):
         ktclsobj = ktclass.objects.filter(student=stdobj)
         examformobj = examform.objects.filter(klass=klsobj)
         formlist = []
+        ktform = None
         for kt in ktclsobj:
             ktform = examform.objects.filter(ktclass=kt)
         for form in examformobj:
             formlist.append(form)
-        for form in ktform:
-            formlist.append(form)
+        if ktform:
+            for form in ktform:
+                formlist.append(form)
         print(formlist)
         context = {'formlist': formlist}
     return render(request, 'main/examFormlist.html',context)
